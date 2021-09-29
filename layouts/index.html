@@ -16,19 +16,44 @@
 -->
 
   <main aria-role="main">
-    <header class="homepage-header">
-      <h1>{{.Title}}</h1>
-      {{ with .Params.subtitle }}
-      <span class="subtitle">{{.}}</span>
-      {{ end }}
-    </header>
-    <div class="homepage-content">
-      {{.Content}}
-    </div>
-    <div>
-      {{ range first 10 .Site.RegularPages }}
-          {{ .Render "summary"}}
-      {{ end }}
-    </div>
+
+    <!--
+    <section class="section">
+      <div class="homepage-content">
+        {{.Content}}
+      </div>
+    </section>
+    -->
+
+    <section class="section">
+      <div class="columns">
+        {{ range .Site.RegularPages }}
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-96x96">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+                  <p class="subtitle is-6">{{ .Summary }}</p>
+                </div>
+              </div>
+
+            </div>
+            <footer class="card-footer">
+              <span class="card-footer-item">.time</span>
+              <span class="card-footer-item">.kcal</span>
+              <span class="card-footer-item">.meat</span>
+            </footer>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </section>
+
   </main>
 {{ end }}
