@@ -1,0 +1,34 @@
+{{ define "main" }}
+<!--
+  # This can be used once you undestand what you're doing
+  <main role="main">
+    <section class="section">
+      <article class="message">
+        <div class="message-header">
+          <p>:(</p>
+        </div>
+        <div class="message-body">
+          There are no recipes yet.
+        </div>
+      </article>
+    </section>
+  </main>
+-->
+
+  <main aria-role="main">
+    <header class="homepage-header">
+      <h1>{{.Title}}</h1>
+      {{ with .Params.subtitle }}
+      <span class="subtitle">{{.}}</span>
+      {{ end }}
+    </header>
+    <div class="homepage-content">
+      {{.Content}}
+    </div>
+    <div>
+      {{ range first 10 .Site.RegularPages }}
+          {{ .Render "summary"}}
+      {{ end }}
+    </div>
+  </main>
+{{ end }}
