@@ -16,15 +16,6 @@
 -->
 
   <main aria-role="main">
-
-    <!--
-    <section class="section">
-      <div class="homepage-content">
-        {{.Content}}
-      </div>
-    </section>
-    -->
-
     <section class="section">
       <div class="columns">
         {{ range .Site.RegularPages }}
@@ -43,11 +34,12 @@
                 </div>
               </div>
 
+{{ $totalTimeDuration := time.ParseDuration .Params.recipe.totalTime }}
+
             </div>
             <footer class="card-footer">
-              <span class="card-footer-item">.time</span>
-              <span class="card-footer-item">.kcal</span>
-              <span class="card-footer-item">.meat</span>
+              <span class="card-footer-item">{{ $totalTimeDuration.Minutes }} Minuten</span>
+              <span class="card-footer-item">{{ .Params.recipe.diet }}</span>
             </footer>
           </div>
         </div>

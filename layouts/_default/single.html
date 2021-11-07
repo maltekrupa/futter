@@ -1,0 +1,24 @@
+{{ define "head" }}
+<script type="application/ld+json">
+      {
+      "@context": "https://schema.org/",
+      "@type": "Recipe",
+      "name": "{{ .Title }}",
+      "recipeIngredient": [{{ range $i, $e := .Params.recipe.recipeIngredient }}{{ if $i }},{{ end }}{{ $e }}{{ end }}],
+      "recipeInstructions": [
+      {{- range $i, $e := .Params.recipe.recipeInstructions }}
+      {{- if $i }},{{ end }}
+        {
+          "@type": "HowToStep",
+          "text": "{{ $e }}"
+        }
+      {{- end }}
+      ],
+      "recipeYield": "{{ .Params.recipe.recipeYield }}",
+      "totalTime": "{{ .Params.recipe.totalTime }}"
+      }
+</script>
+{{ end }}
+{{ define "main" }}
+{{ .Content }}
+{{ end }}
