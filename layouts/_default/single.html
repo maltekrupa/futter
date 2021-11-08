@@ -27,7 +27,7 @@
   </div>
 </div>
 <div class="columns">
-  <div class="column is-full">
+  <div class="column is-half">
     <h1 class="title">Zutaten</h1>
     <table class="table">
       <thead>
@@ -43,6 +43,15 @@
     {{ end }}
       </tbody>
     </table>
+  </div>
+  <div class="column is-half">
+    {{ with .Resources.ByType "image" }}
+    {{ range . }}
+    <figure class="image is-4by3">
+        <img src="{{ .RelPermalink }}">
+    {{ end }}
+    {{ end }}
+    </figure>
   </div>
 </div>
 {{ end }}
