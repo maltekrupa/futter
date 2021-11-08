@@ -20,5 +20,29 @@
 </script>
 {{ end }}
 {{ define "main" }}
-{{ .Content }}
+<div class="columns">
+  <div class="column is-full">
+    <h1 class="title">{{ .Title }}</h1>
+    <h2 class="subtitle">{{ .Content }}</h2>
+  </div>
+</div>
+<div class="columns">
+  <div class="column is-full">
+    <h1 class="title">Zutaten</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Zutat</th>
+        </tr>
+      </thead>
+      <tbody>
+    {{- range $i, $e := .Params.recipe.recipeInstructions }}
+        <tr>
+          <td>{{ $e }}</td>
+        </tr>
+    {{ end }}
+      </tbody>
+    </table>
+  </div>
+</div>
 {{ end }}

@@ -15,37 +15,32 @@
   </main>
 -->
 
-  <main aria-role="main">
-    <section class="section">
-      <div class="columns">
-        {{ range .Site.RegularPages }}
-        <div class="column is-half">
-          <div class="card">
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-96x96">
-                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
-                  <p class="subtitle is-6">{{ .Summary }}</p>
-                </div>
-              </div>
+{{ range .Site.RegularPages }}
+<div class="columns">
+  <div class="column is-half">
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-96x96">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+            <p class="subtitle is-6">{{ .Summary }}</p>
+          </div>
+        </div>
 
 {{ $totalTimeDuration := time.ParseDuration .Params.recipe.totalTime }}
 
-            </div>
-            <footer class="card-footer">
-              <span class="card-footer-item">{{ $totalTimeDuration.Minutes }} Minuten</span>
-              <span class="card-footer-item">{{ .Params.recipe.diet }}</span>
-            </footer>
-          </div>
-        </div>
-        {{ end }}
       </div>
-    </section>
-
-  </main>
+      <footer class="card-footer">
+        <span class="card-footer-item">{{ $totalTimeDuration.Minutes }} Minuten</span>
+        <span class="card-footer-item">{{ .Params.recipe.diet }}</span>
+      </footer>
+    </div>
+  </div>
+</div>
+{{ end }}
 {{ end }}
