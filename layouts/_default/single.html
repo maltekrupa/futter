@@ -36,9 +36,9 @@
         </tr>
       </thead>
       <tbody>
-    {{- range $i, $e := .Params.recipe.recipeInstructions }}
+    {{- range .Params.recipe.recipeIngredient }}
         <tr>
-          <td>{{ $e }}</td>
+          <td>{{ . }}</td>
         </tr>
     {{ end }}
       </tbody>
@@ -52,6 +52,23 @@
     {{ end }}
     {{ end }}
     </figure>
+  </div>
+</div>
+<div class="columns">
+  <div class="column is-full">
+    <h1 class="title">Zubereitung</h1>
+    <div class="notification is-warning is-light">
+      Wichtig: Wie immer ist der erste Schritt die <a href="https://de.wikipedia.org/wiki/Mise_en_Place">Mise en Place</a>. Bereite alles vor, was du während des Kochens brauchen wirst.
+    </div>
+
+    <div class="content">
+      <ol>
+      {{- range .Params.recipe.recipeInstructions }}
+        <li>{{ . }}</li>
+      {{ end }}
+      </ol>
+    </div>
+
   </div>
 </div>
 {{ end }}
