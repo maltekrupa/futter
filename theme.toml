@@ -3,19 +3,13 @@
 
 name = "Futter"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
-description = ""
-homepage = "http://example.com/"
-tags = []
+licenselink = "https://github.com/temal-/futter/blob/main/LICENSE"
+description = "A simple theme for recipes"
+homepage = "https://github.com/temal-/futter/"
+tags = [food, recipes]
 features = []
 min_version = "0.41.0"
 
 [author]
-  name = ""
-  homepage = ""
-
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""
+  name = "Malte Krupa"
+  homepage = "https://nafn.de"
